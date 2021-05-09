@@ -1,3 +1,8 @@
+/*
+Teemu Näsänen, 1903750
+Intro Mobile App 2021
+*/
+// Importing components, icons and tabroutes
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
@@ -9,10 +14,10 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import { calendar, star, football } from 'ionicons/icons';
+import Home from './pages/Home';
+import Events from './pages/Events';
+import Stats from './pages/Stats';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -32,37 +37,37 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
+// Routes and tabroutes with icons
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
+          <Route exact path="/home">
+            <Home />
           </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
+          <Route exact path="/events">
+            <Events />
           </Route>
-          <Route path="/tab3">
-            <Tab3 />
+          <Route path="/stats">
+            <Stats />
           </Route>
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/home" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+          <IonTabButton tab="home" href="/home">
+            <IonIcon icon={football} />
+            <IonLabel>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+          <IonTabButton tab="events" href="/events">
+            <IonIcon icon={calendar} />
+            <IonLabel>Events</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <IonTabButton tab="stats" href="/stats">
+            <IonIcon icon={star} />
+            <IonLabel>Statistics</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
